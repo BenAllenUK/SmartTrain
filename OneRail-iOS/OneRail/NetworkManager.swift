@@ -20,8 +20,9 @@ class NetworkManager {
         let url = URL(string: urlString)!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let parameters: [String: Any] = ["client_uuid":userId, "beacon_uuid":beacon.major]
+        let parameters: [String: Any] = ["client_uuid":userId, "beacon_uuid": "\(beacon.major)"]
         let data = try! JSONSerialization.data(withJSONObject: parameters, options: [])
 
         callEndpoint(with: urlRequest, data: data, retryBlock: {
@@ -34,7 +35,8 @@ class NetworkManager {
         let url = URL(string: urlString)!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
-        
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
         let parameters: [String: Any] = ["client_uuid":userId]
         let data = try! JSONSerialization.data(withJSONObject: parameters, options: [])
 

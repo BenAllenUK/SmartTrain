@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xQi-yb-VHY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,13 +35,99 @@
                             <constraint firstItem="S3X-9O-ogE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="AUv-QW-EUS"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="byZ-a7-7Gq"/>
                     <connections>
                         <outlet property="beaconInfoLabel" destination="S3X-9O-ogE" id="9nT-1t-jft"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-46" y="114"/>
+            <point key="canvasLocation" x="1748" y="114"/>
+        </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="red-E9-GmV">
+            <objects>
+                <viewController id="sBA-7w-Jzk" customClass="SplashViewController" customModule="OneRail" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QqH-4D-2Gt"/>
+                        <viewControllerLayoutGuide type="bottom" id="log-0I-5Qj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="06K-lU-Ify">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="NbY-wx-Mwt">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SpinnerBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Sbi-kL-XxE">
+                                <rect key="frame" x="164.5" y="542" width="45" height="45"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Spinner" translatesAutoresizingMaskIntoConstraints="NO" id="2MW-N4-bFb">
+                                <rect key="frame" x="166.5" y="541.5" width="41" height="46"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bluetooth" translatesAutoresizingMaskIntoConstraints="NO" id="0iD-dS-wQx">
+                                <rect key="frame" x="179" y="552" width="16" height="25"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="log-0I-5Qj" firstAttribute="top" secondItem="NbY-wx-Mwt" secondAttribute="bottom" id="5PV-SJ-8yO"/>
+                            <constraint firstItem="Sbi-kL-XxE" firstAttribute="centerX" secondItem="06K-lU-Ify" secondAttribute="centerX" id="J8h-4X-Opk"/>
+                            <constraint firstItem="2MW-N4-bFb" firstAttribute="centerX" secondItem="Sbi-kL-XxE" secondAttribute="centerX" id="KcI-K4-9K0"/>
+                            <constraint firstItem="2MW-N4-bFb" firstAttribute="centerY" secondItem="Sbi-kL-XxE" secondAttribute="centerY" id="MMS-X2-kCF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NbY-wx-Mwt" secondAttribute="trailing" constant="-16" id="NAl-N8-MwS"/>
+                            <constraint firstItem="log-0I-5Qj" firstAttribute="top" secondItem="Sbi-kL-XxE" secondAttribute="bottom" constant="80" id="NOI-E2-BdS"/>
+                            <constraint firstItem="0iD-dS-wQx" firstAttribute="centerX" secondItem="Sbi-kL-XxE" secondAttribute="centerX" id="a0V-zl-jMy"/>
+                            <constraint firstItem="NbY-wx-Mwt" firstAttribute="top" secondItem="QqH-4D-2Gt" secondAttribute="bottom" constant="-20" id="azY-uC-n2N"/>
+                            <constraint firstItem="NbY-wx-Mwt" firstAttribute="leading" secondItem="06K-lU-Ify" secondAttribute="leadingMargin" constant="-16" id="cIW-i3-biA"/>
+                            <constraint firstItem="0iD-dS-wQx" firstAttribute="centerY" secondItem="Sbi-kL-XxE" secondAttribute="centerY" id="hgC-lI-MSQ"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="NWK-o7-UWE" appends="YES" id="A00-wz-uwa"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="kdX-dj-QpE"/>
+                    <connections>
+                        <outlet property="bluetoothImage" destination="0iD-dS-wQx" id="ZYp-wD-nim"/>
+                        <outlet property="spinnerBackground" destination="Sbi-kL-XxE" id="HFJ-4z-dXl"/>
+                        <outlet property="spinnerForeground" destination="2MW-N4-bFb" id="iwD-Qp-V4V"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="Splash2Main" id="rRU-pP-plm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QFq-QV-roR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="NWK-o7-UWE">
+                    <connections>
+                        <action selector="tapDetected" destination="sBA-7w-Jzk" id="c6k-OH-7gZ"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="860" y="114"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rCk-rZ-b8G">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="xQi-yb-VHY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="olb-Sq-F7Q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sBA-7w-Jzk" kind="relationship" relationship="rootViewController" id="zug-wp-izm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Li-vi-yPD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-47.200000000000003" y="113.79310344827587"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Bluetooth" width="16" height="25"/>
+        <image name="Spinner" width="41" height="46"/>
+        <image name="SpinnerBackground" width="45" height="45"/>
+        <image name="Splash" width="375" height="667"/>
+    </resources>
 </document>

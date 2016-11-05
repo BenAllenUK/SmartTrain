@@ -38,12 +38,18 @@ class ViewController: UIViewController, BeaconManagerDelegate {
 
     func currentBeaconChanged(beacon: CLBeacon?) {
         if let beacon = beacon {
+            print(beacon)
             beaconInfoLabel.text = "\(beacon.proximityUUID)\n\(beacon.major)\n\(beacon.minor)"
             networkManager.notifyBeaconDetection(beacon: beacon, userId: UIDevice.current.identifierForVendor?.uuidString ?? "N/A")
         } else {
+            print("no beacon")
             beaconInfoLabel.text = "you are not on a train"
             networkManager.notifyBeaconSignalLost(userId: UIDevice.current.identifierForVendor?.uuidString ?? "N/A")
         }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
 
 }

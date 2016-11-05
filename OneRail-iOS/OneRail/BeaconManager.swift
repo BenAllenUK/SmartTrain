@@ -64,7 +64,15 @@ final class BeaconManager: NSObject, CLLocationManagerDelegate {
     var currentBeacon: CLBeacon? {
         didSet {
             let newBeacon = currentBeacon
-            if oldValue != newBeacon {
+            if let oldValue = oldValue {
+                if let newBeacon = newBeacon {
+                    if !oldValue.isEqual(beacon: newBeacon) {
+                        delegate?.currentBeaconChanged(beacon: newBeacon)
+                    }
+                } else {
+                    delegate?.currentBeaconChanged(beacon: newBeacon)
+                }
+            } else if let newBeacon = newBeacon {
                 delegate?.currentBeaconChanged(beacon: newBeacon)
             }
         }
@@ -96,14 +104,10 @@ final class BeaconManager: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
-        print("---------------")
-        
         for beacon in beacons {
             if IGNORE.contains(beacon.major.intValue) {
                 continue
-            }
-            print("beacon \(beacon.major).\(beacon.minor) - accuracy: \(beacon.accuracy) proximity: \(beacon.proximity.description) rssi: \(beacon.rssi)")
-            
+            }            
             var didDetect: Bool = false
             for detection in detectedBeacons {
                 if detection.beacon.isEqual(beacon: beacon) {
