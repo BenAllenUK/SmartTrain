@@ -9,6 +9,8 @@
 import Foundation
 import CoreLocation
 
+private let IGNORE = [24210, 31101]
+
 extension CLProximity {
     var description: String {
         switch self {
@@ -24,13 +26,33 @@ extension CLProximity {
     }
 }
 
-//extension CLBeacon {
-//    
-//    func isEqual(beacon: CLBeacon) -> Bool {
-//        return self.proximityUUID == beacon.proximityUUID && self.major == beacon.major && self.minor == beacon.minor
-//    }
-//    
-//}
+private let TIME_INTERVAL: TimeInterval = 10
+
+func ==(left: BeaconDetection, right: BeaconDetection) -> Bool {
+    return left.beacon.isEqual(beacon: right.beacon)
+}
+
+class BeaconDetection: Hashable, Equatable {
+    var beacon: CLBeacon
+    var date = Date()
+    
+    init(beacon: CLBeacon) {
+        self.beacon = beacon
+    }
+    
+    var hashValue: Int {
+        return beacon.major.hashValue + beacon.minor.hashValue
+    }
+    
+}
+
+extension CLBeacon {
+    
+    func isEqual(beacon: CLBeacon) -> Bool {
+        return self.major == beacon.major && self.minor == beacon.minor
+    }
+    
+}
 
 protocol BeaconManagerDelegate: class {
     func currentBeaconChanged(beacon: CLBeacon?)
@@ -47,17 +69,18 @@ final class BeaconManager: NSObject, CLLocationManagerDelegate {
             }
         }
     }
-    var detectedBeacons = Set<CLBeacon>()
+    var detectedBeacons = Set<BeaconDetection>()
     weak var delegate: BeaconManagerDelegate?
     
     override init() {
         super.init()
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.activityType = .other
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.delegate = self
         locationManager.pausesLocationUpdatesAutomatically = false
         locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     func register(uuid: String) {
@@ -69,33 +92,37 @@ final class BeaconManager: NSObject, CLLocationManagerDelegate {
         print("---------------")
         
         for beacon in beacons {
+            if IGNORE.contains(beacon.major.intValue) {
+                continue
+            }
             print("beacon \(beacon.major).\(beacon.minor) - accuracy: \(beacon.accuracy) proximity: \(beacon.proximity.description) rssi: \(beacon.rssi)")
             
-            var newBeacons = Set<CLBeacon>()
             var didDetect: Bool = false
-            for storedBeacon in detectedBeacons {
-                if storedBeacon == beacon {
-                    if beacon.proximity == .unknown {
-                        newBeacons.insert(storedBeacon)
-                    } else {
-                        newBeacons.insert(beacon)
+            for detection in detectedBeacons {
+                if detection.beacon.isEqual(beacon: beacon) {
+                    if beacon.proximity != .unknown {
+                        detection.beacon = beacon
+                        detection.date = Date()
                     }
                     didDetect = true
                     break
                 }
             }
             if !didDetect {
-                newBeacons.insert(beacon)
+                detectedBeacons.insert(BeaconDetection(beacon: beacon))
             }
-            detectedBeacons = newBeacons
         }
+        
+        detectedBeacons = Set<BeaconDetection>(detectedBeacons.filter({ (detection) -> Bool in
+            return Date().timeIntervalSince(detection.date) < TIME_INTERVAL
+        }))
         
         var closestDistance: CLLocationDistance = DBL_MAX
         var closestBeacon: CLBeacon?
-        for beacon in detectedBeacons {
-            if beacon.accuracy < closestDistance {
-                closestDistance = beacon.accuracy
-                closestBeacon = beacon
+        for detection in detectedBeacons {
+            if detection.beacon.accuracy < closestDistance {
+                closestDistance = detection.beacon.accuracy
+                closestBeacon = detection.beacon
             }
         }
         self.currentBeacon = closestBeacon
