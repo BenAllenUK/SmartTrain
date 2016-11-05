@@ -14,6 +14,10 @@
 		14EB19821DCDC9D4005F3A8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14EB19801DCDC9D4005F3A8E /* LaunchScreen.storyboard */; };
 		14EB19901DCDFBD7005F3A8E /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EB198F1DCDFBD7005F3A8E /* BeaconManager.swift */; };
 		14EB19931DCE4249005F3A8E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EB19921DCE4249005F3A8E /* NetworkManager.swift */; };
+		7A0B0D3E1DCE6E81001391C6 /* header-start-new.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0B0D3D1DCE6E81001391C6 /* header-start-new.png */; };
+		7A2943571DCE832700AB1D08 /* welcome-depeature-info.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2943541DCE832700AB1D08 /* welcome-depeature-info.png */; };
+		7A2943581DCE832700AB1D08 /* welcome-services.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2943551DCE832700AB1D08 /* welcome-services.png */; };
+		7A2943591DCE832700AB1D08 /* welcome-todo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A2943561DCE832700AB1D08 /* welcome-todo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		14EB19831DCDC9D4005F3A8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14EB198F1DCDFBD7005F3A8E /* BeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
 		14EB19921DCE4249005F3A8E /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		7A0B0D3D1DCE6E81001391C6 /* header-start-new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "header-start-new.png"; path = "../../../assets/header-start-new.png"; sourceTree = "<group>"; };
+		7A2943541DCE832700AB1D08 /* welcome-depeature-info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "welcome-depeature-info.png"; path = "../../../assets/welcome-depeature-info.png"; sourceTree = "<group>"; };
+		7A2943551DCE832700AB1D08 /* welcome-services.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "welcome-services.png"; path = "../../../assets/welcome-services.png"; sourceTree = "<group>"; };
+		7A2943561DCE832700AB1D08 /* welcome-todo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "welcome-todo.png"; path = "../../../assets/welcome-todo.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +103,10 @@
 			isa = PBXGroup;
 			children = (
 				14EB197B1DCDC9D4005F3A8E /* Main.storyboard */,
+				7A2943541DCE832700AB1D08 /* welcome-depeature-info.png */,
+				7A2943551DCE832700AB1D08 /* welcome-services.png */,
+				7A2943561DCE832700AB1D08 /* welcome-todo.png */,
+				7A0B0D3D1DCE6E81001391C6 /* header-start-new.png */,
 				14EB197E1DCDC9D4005F3A8E /* Assets.xcassets */,
 				14EB19801DCDC9D4005F3A8E /* LaunchScreen.storyboard */,
 				14EB19831DCDC9D4005F3A8E /* Info.plist */,
@@ -169,7 +181,11 @@
 			files = (
 				14EB19821DCDC9D4005F3A8E /* LaunchScreen.storyboard in Resources */,
 				14EB197F1DCDC9D4005F3A8E /* Assets.xcassets in Resources */,
+				7A0B0D3E1DCE6E81001391C6 /* header-start-new.png in Resources */,
+				7A2943571DCE832700AB1D08 /* welcome-depeature-info.png in Resources */,
+				7A2943581DCE832700AB1D08 /* welcome-services.png in Resources */,
 				14EB197D1DCDC9D4005F3A8E /* Main.storyboard in Resources */,
+				7A2943591DCE832700AB1D08 /* welcome-todo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
