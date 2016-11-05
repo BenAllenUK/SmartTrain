@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="jYQ-Dp-89S">
+            <objects>
+                <viewController id="Fsu-XY-coS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ydr-Jm-Md8"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xad-av-AYj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WZr-bk-Ehb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header-start-new.png" translatesAutoresizingMaskIntoConstraints="NO" id="CoQ-KD-oHr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="222"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="222" id="P7m-3k-ZCt"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome-depeature-info.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wyf-vl-Y6l">
+                                <rect key="frame" x="0.0" y="253" width="375" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="MG2-H8-s64"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="welcome-todo.png" translatesAutoresizingMaskIntoConstraints="NO" id="j6O-w5-f5R">
+                                <rect key="frame" x="16" y="390" width="339" height="190"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="welcome-services.png" translatesAutoresizingMaskIntoConstraints="NO" id="4uU-ke-rAN">
+                                <rect key="frame" x="16" y="595" width="339" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2666666667" green="0.25490196079999999" blue="0.30588235289999999" alpha="0.12" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="j6O-w5-f5R" firstAttribute="top" secondItem="Wyf-vl-Y6l" secondAttribute="bottom" constant="8" id="40T-KO-Pe0"/>
+                            <constraint firstItem="Wyf-vl-Y6l" firstAttribute="leading" secondItem="WZr-bk-Ehb" secondAttribute="leading" id="D9N-7W-pgq"/>
+                            <constraint firstItem="CoQ-KD-oHr" firstAttribute="top" secondItem="Ydr-Jm-Md8" secondAttribute="bottom" id="L2s-dO-hRY"/>
+                            <constraint firstItem="Wyf-vl-Y6l" firstAttribute="top" secondItem="CoQ-KD-oHr" secondAttribute="bottom" constant="31" id="Te2-nY-PJO"/>
+                            <constraint firstAttribute="trailing" secondItem="Wyf-vl-Y6l" secondAttribute="trailing" id="aCC-Nc-YJL"/>
+                            <constraint firstItem="j6O-w5-f5R" firstAttribute="leading" secondItem="WZr-bk-Ehb" secondAttribute="leadingMargin" id="fc4-s3-5gS"/>
+                            <constraint firstItem="CoQ-KD-oHr" firstAttribute="leading" secondItem="WZr-bk-Ehb" secondAttribute="leading" id="irD-ey-l45"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="j6O-w5-f5R" secondAttribute="trailing" constant="4" id="jpn-u0-neM"/>
+                            <constraint firstAttribute="trailing" secondItem="CoQ-KD-oHr" secondAttribute="trailing" id="vdE-vc-14Z"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ee-5R-wHd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="778" y="114"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="wG0-lD-OYY">
+            <objects>
+                <viewController id="6Ei-uv-ybz" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hFw-m8-jOv"/>
+                        <viewControllerLayoutGuide type="bottom" id="19m-yt-fiG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IdJ-6i-bQP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="journeystart-header.png" translatesAutoresizingMaskIntoConstraints="NO" id="YnB-VI-8kd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="222"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="222" id="QPD-NQ-00Y"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ontrain-departingtime.png" translatesAutoresizingMaskIntoConstraints="NO" id="nsU-Lg-0Cw">
+                                <rect key="frame" x="10" y="253" width="355" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Sse-Lg-RTB"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ontrain-journey.png" translatesAutoresizingMaskIntoConstraints="NO" id="6nG-jl-iiZ">
+                                <rect key="frame" x="16" y="595" width="339" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ontrain-seats.png" translatesAutoresizingMaskIntoConstraints="NO" id="c7L-3t-jp8">
+                                <rect key="frame" x="10" y="389" width="339" height="106"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2666666667" green="0.25490196079999999" blue="0.30588235289999999" alpha="0.12" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nsU-Lg-0Cw" secondAttribute="trailing" constant="10" id="4Zk-Pp-1uo"/>
+                            <constraint firstAttribute="trailing" secondItem="c7L-3t-jp8" secondAttribute="trailing" constant="10" id="8sB-zf-qjw"/>
+                            <constraint firstItem="c7L-3t-jp8" firstAttribute="leading" secondItem="IdJ-6i-bQP" secondAttribute="leading" constant="10" id="Fy8-uJ-hxp"/>
+                            <constraint firstAttribute="trailing" secondItem="YnB-VI-8kd" secondAttribute="trailing" id="MhW-f6-qCP"/>
+                            <constraint firstItem="YnB-VI-8kd" firstAttribute="top" secondItem="hFw-m8-jOv" secondAttribute="bottom" id="Pv0-qH-jfk"/>
+                            <constraint firstItem="nsU-Lg-0Cw" firstAttribute="leading" secondItem="IdJ-6i-bQP" secondAttribute="leading" constant="10" id="ZMz-oi-zMd"/>
+                            <constraint firstItem="YnB-VI-8kd" firstAttribute="leading" secondItem="IdJ-6i-bQP" secondAttribute="leading" id="c6o-dV-1UI"/>
+                            <constraint firstItem="c7L-3t-jp8" firstAttribute="top" secondItem="nsU-Lg-0Cw" secondAttribute="bottom" constant="8" id="e1D-mS-uwS"/>
+                            <constraint firstItem="nsU-Lg-0Cw" firstAttribute="top" secondItem="YnB-VI-8kd" secondAttribute="bottom" constant="31" id="nHm-M2-OeQ"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UiT-DU-p6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1429.5999999999999" y="113.79310344827587"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="header-start-new.png" width="1125" height="654"/>
+        <image name="journeystart-header.png" width="750" height="436"/>
+        <image name="ontrain-departingtime.png" width="620" height="182"/>
+        <image name="ontrain-journey.png" width="620" height="182"/>
+        <image name="ontrain-seats.png" width="620" height="182"/>
+        <image name="welcome-depeature-info.png" width="930" height="339"/>
+        <image name="welcome-services.png" width="930" height="282"/>
+        <image name="welcome-todo.png" width="930" height="531"/>
+    </resources>
+</document>
