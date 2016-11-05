@@ -80,12 +80,19 @@ final class BeaconManager: NSObject, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.pausesLocationUpdatesAutomatically = false
         locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
     }
     
     func register(uuid: String) {
         let region = CLBeaconRegion(proximityUUID: UUID(uuidString: uuid)!, identifier: "com.hacktrain.onerail")
-        self.locationManager.startRangingBeacons(in: region)
+        locationManager.startUpdatingLocation()
+        locationManager.startRangingBeacons(in: region)
+    }
+    
+    func deregister(uuid: String) {
+        let region = CLBeaconRegion(proximityUUID: UUID(uuidString: uuid)!, identifier: "com.hacktrain.onerail")
+        locationManager.stopUpdatingLocation()
+        locationManager.stopRangingBeacons(in: region)
+
     }
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {

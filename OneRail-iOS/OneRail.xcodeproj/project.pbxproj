@@ -12,8 +12,8 @@
 		14EB197D1DCDC9D4005F3A8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14EB197B1DCDC9D4005F3A8E /* Main.storyboard */; };
 		14EB197F1DCDC9D4005F3A8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14EB197E1DCDC9D4005F3A8E /* Assets.xcassets */; };
 		14EB19821DCDC9D4005F3A8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14EB19801DCDC9D4005F3A8E /* LaunchScreen.storyboard */; };
-		14EB198E1DCDEDE5005F3A8E /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EB198D1DCDEDE5005F3A8E /* BluetoothManager.swift */; };
 		14EB19901DCDFBD7005F3A8E /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EB198F1DCDFBD7005F3A8E /* BeaconManager.swift */; };
+		14EB19931DCE4249005F3A8E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EB19921DCE4249005F3A8E /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +24,8 @@
 		14EB197E1DCDC9D4005F3A8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14EB19811DCDC9D4005F3A8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14EB19831DCDC9D4005F3A8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		14EB198D1DCDEDE5005F3A8E /* BluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
 		14EB198F1DCDFBD7005F3A8E /* BeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
+		14EB19921DCE4249005F3A8E /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +77,8 @@
 		14EB198A1DCDCCE3005F3A8E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				14EB198D1DCDEDE5005F3A8E /* BluetoothManager.swift */,
 				14EB198F1DCDFBD7005F3A8E /* BeaconManager.swift */,
+				14EB19921DCE4249005F3A8E /* NetworkManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -180,9 +180,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14EB19931DCE4249005F3A8E /* NetworkManager.swift in Sources */,
 				14EB197A1DCDC9D4005F3A8E /* ViewController.swift in Sources */,
 				14EB19901DCDFBD7005F3A8E /* BeaconManager.swift in Sources */,
-				14EB198E1DCDEDE5005F3A8E /* BluetoothManager.swift in Sources */,
 				14EB19781DCDC9D4005F3A8E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

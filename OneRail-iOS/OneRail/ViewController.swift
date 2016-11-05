@@ -17,17 +17,32 @@ class ViewController: UIViewController, BeaconManagerDelegate {
         return (UIApplication.shared.delegate as! AppDelegate).beaconManager
     }
     
+    var networkManager: NetworkManager {
+        return (UIApplication.shared.delegate as! AppDelegate).networkManager
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         beaconManager.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         beaconManager.register(uuid: TRAINZ)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        beaconManager.deregister(uuid: TRAINZ)
     }
 
     func currentBeaconChanged(beacon: CLBeacon?) {
         if let beacon = beacon {
             beaconInfoLabel.text = "\(beacon.proximityUUID)\n\(beacon.major)\n\(beacon.minor)"
+            networkManager.notifyBeaconDetection(beacon: beacon, userId: UIDevice.current.identifierForVendor?.uuidString ?? "N/A")
         } else {
             beaconInfoLabel.text = "you are not on a train"
+            networkManager.notifyBeaconSignalLost(userId: UIDevice.current.identifierForVendor?.uuidString ?? "N/A")
         }
     }
 
