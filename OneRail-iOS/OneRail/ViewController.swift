@@ -7,19 +7,29 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, BeaconManagerDelegate {
 
+    @IBOutlet weak var beaconInfoLabel: UILabel!
+    
+    var beaconManager: BeaconManager {
+        return (UIApplication.shared.delegate as! AppDelegate).beaconManager
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        beaconManager.delegate = self
+        beaconManager.register(uuid: TRAINZ)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func currentBeaconChanged(beacon: CLBeacon?) {
+        if let beacon = beacon {
+            beaconInfoLabel.text = "\(beacon.proximityUUID)\n\(beacon.major)\n\(beacon.minor)"
+        } else {
+            beaconInfoLabel.text = "you are not on a train"
+        }
     }
-
 
 }
 

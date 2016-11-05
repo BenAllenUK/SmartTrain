@@ -12,6 +12,8 @@
 		14EB197D1DCDC9D4005F3A8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14EB197B1DCDC9D4005F3A8E /* Main.storyboard */; };
 		14EB197F1DCDC9D4005F3A8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14EB197E1DCDC9D4005F3A8E /* Assets.xcassets */; };
 		14EB19821DCDC9D4005F3A8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14EB19801DCDC9D4005F3A8E /* LaunchScreen.storyboard */; };
+		14EB198E1DCDEDE5005F3A8E /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EB198D1DCDEDE5005F3A8E /* BluetoothManager.swift */; };
+		14EB19901DCDFBD7005F3A8E /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EB198F1DCDFBD7005F3A8E /* BeaconManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		14EB197E1DCDC9D4005F3A8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14EB19811DCDC9D4005F3A8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14EB19831DCDC9D4005F3A8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14EB198D1DCDEDE5005F3A8E /* BluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
+		14EB198F1DCDFBD7005F3A8E /* BeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 		14EB198A1DCDCCE3005F3A8E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				14EB198D1DCDEDE5005F3A8E /* BluetoothManager.swift */,
+				14EB198F1DCDFBD7005F3A8E /* BeaconManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -128,7 +134,13 @@
 				TargetAttributes = {
 					14EB19731DCDC9D4005F3A8E = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 7G2D7B93CT;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -169,6 +181,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				14EB197A1DCDC9D4005F3A8E /* ViewController.swift in Sources */,
+				14EB19901DCDFBD7005F3A8E /* BeaconManager.swift in Sources */,
+				14EB198E1DCDEDE5005F3A8E /* BluetoothManager.swift in Sources */,
 				14EB19781DCDC9D4005F3A8E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +306,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7G2D7B93CT;
 				INFOPLIST_FILE = OneRail/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.hacktrain.OneRail;
@@ -304,6 +319,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7G2D7B93CT;
 				INFOPLIST_FILE = OneRail/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.hacktrain.OneRail;
@@ -331,6 +347,7 @@
 				14EB19881DCDC9D4005F3A8E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
