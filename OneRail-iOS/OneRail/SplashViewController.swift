@@ -8,16 +8,26 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
-final class SplashViewController : UIViewController {
+final class SplashViewController : UIViewController, BeaconManagerDelegate {
     
     @IBOutlet weak var bluetoothImage: UIImageView!
     @IBOutlet weak var spinnerBackground: UIImageView!
     @IBOutlet weak var spinnerForeground: UIImageView!
     var didDismiss: Bool = false
     
+    var beaconManager: BeaconManager {
+        return (UIApplication.shared.delegate as! AppDelegate).beaconManager
+    }
+    
+    var networkManager: NetworkManager {
+        return (UIApplication.shared.delegate as! AppDelegate).networkManager
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        beaconManager.delegate = self
         animateBlueTooth()
         animateSpinnerPresentation()
         animateSpinner()
@@ -28,6 +38,9 @@ final class SplashViewController : UIViewController {
         didDismiss = true
         self.bluetoothImage.layer.removeAllAnimations()
         self.bluetoothImage.layer.removeAllAnimations()
+        self.bluetoothImage.alpha = 0
+        self.spinnerForeground.alpha = 0
+        self.spinnerBackground.alpha = 0
     }
     
     func animateBlueTooth() {
@@ -54,7 +67,14 @@ final class SplashViewController : UIViewController {
     }
     
     @IBAction func tapDetected() {
-        self.performSegue(withIdentifier: "Splash2Main", sender: self)
+        beaconManager.register(uuid: TRAINZ)
+    }
+    
+    func currentBeaconChanged(beacon: CLBeacon?) {
+        if let beacon = beacon, beacon.major.intValue == STATION_MAYOR {
+            self.performSegue(withIdentifier: "Splash2Platform", sender: self)
+            networkManager.notifyBeaconDetection(beacon: beacon, userId: UIDevice.current.identifierForVendor?.uuidString ?? "N/A")
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

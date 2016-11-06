@@ -9,6 +9,8 @@
 import UIKit
 
 let TRAINZ = "B9407F30-F5F8-466E-AFF9-25556B57FE6D"
+let STATION_MAYOR = 14650
+let TRAIN_MAYOR = 42705
 
 @UIApplicationMain class AppDelegate: UIResponder, UIApplicationDelegate {
 
