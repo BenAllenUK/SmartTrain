@@ -9,24 +9,24 @@
 import Foundation
 import CoreLocation
 
-private let LOCAL_SERVER = "192.168.1.21"
+private let LOCAL_SERVER = "192.168.43.31"
 
 class NetworkManager {
     
     let sessionManager = URLSession(configuration: URLSessionConfiguration.default)
     
-    func notifyBeaconDetection(beacon: CLBeacon, userId: String) {
+    func notifyBeaconDetection(beaconId: NSNumber, userId: String) {
         let urlString = "http://\(LOCAL_SERVER):8080/api/view_beacon"
         let url = URL(string: urlString)!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let parameters: [String: Any] = ["client_uuid":userId, "beacon_uuid": "\(beacon.major)"]
+        let parameters: [String: Any] = ["client_uuid":userId, "beacon_uuid": "\(beaconId)"]
         let data = try! JSONSerialization.data(withJSONObject: parameters, options: [])
 
         callEndpoint(with: urlRequest, data: data, retryBlock: {
-            self.notifyBeaconDetection(beacon: beacon, userId: userId)
+            self.notifyBeaconDetection(beaconId: beaconId, userId: userId)
         })
     }
     

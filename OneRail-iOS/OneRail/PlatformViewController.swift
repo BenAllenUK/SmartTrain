@@ -30,15 +30,25 @@ final class PlatformViewController : UIViewController, BeaconManagerDelegate {
     }
     
     func currentBeaconChanged(beacon: CLBeacon?) {
+        if TAP_ONLY {
+            return
+        }
         if let beacon = beacon, beacon.major.intValue == TRAIN_MAYOR {
             beaconManager.delegate = nil
             self.performSegue(withIdentifier: "Platform2Train", sender: self)
-            networkManager.notifyBeaconDetection(beacon: beacon, userId: UIDevice.current.identifierForVendor?.uuidString ?? "N/A")
+            networkManager.notifyBeaconDetection(beaconId: beacon.major, userId: UIDevice.current.identifierForVendor?.uuidString ?? "N/A")
         } else {
             beaconManager.deregister(uuid: TRAINZ)
             beaconManager.delegate = nil
             let _ = self.navigationController?.popToRootViewController(animated: true)
             networkManager.notifyBeaconSignalLost(userId: UIDevice.current.identifierForVendor?.uuidString ?? "N/A")
+        }
+    }
+    
+    @IBAction func tapDetected() {
+        if TAP_ONLY {
+            self.performSegue(withIdentifier: "Platform2Train", sender: self)
+            networkManager.notifyBeaconDetection(beaconId: 42705, userId: UIDevice.current.identifierForVendor?.uuidString ?? "N/A")
         }
     }
     

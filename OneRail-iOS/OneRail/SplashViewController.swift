@@ -67,13 +67,21 @@ final class SplashViewController : UIViewController, BeaconManagerDelegate {
     }
     
     @IBAction func tapDetected() {
-        beaconManager.register(uuid: TRAINZ)
+        if TAP_ONLY {
+            self.performSegue(withIdentifier: "Splash2Platform", sender: self)
+            networkManager.notifyBeaconDetection(beaconId: 14650, userId: UIDevice.current.identifierForVendor?.uuidString ?? "N/A")
+        } else {
+            beaconManager.register(uuid: TRAINZ)
+        }
     }
     
     func currentBeaconChanged(beacon: CLBeacon?) {
+        if TAP_ONLY {
+            return
+        }
         if let beacon = beacon, beacon.major.intValue == STATION_MAYOR {
             self.performSegue(withIdentifier: "Splash2Platform", sender: self)
-            networkManager.notifyBeaconDetection(beacon: beacon, userId: UIDevice.current.identifierForVendor?.uuidString ?? "N/A")
+            networkManager.notifyBeaconDetection(beaconId: beacon.major, userId: UIDevice.current.identifierForVendor?.uuidString ?? "N/A")
         }
     }
     

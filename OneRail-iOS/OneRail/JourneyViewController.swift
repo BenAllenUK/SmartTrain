@@ -30,10 +30,20 @@ final class JourneyViewController : UIViewController, BeaconManagerDelegate {
     }
     
     func currentBeaconChanged(beacon: CLBeacon?) {
+        if TAP_ONLY {
+            return
+        }
         if let beacon = beacon, beacon.major.intValue == STATION_MAYOR {
             beaconManager.delegate = nil
             self.performSegue(withIdentifier: "Journey2Feedback", sender: self)
-            networkManager.notifyBeaconDetection(beacon: beacon, userId: UIDevice.current.identifierForVendor?.uuidString ?? "N/A")
+            networkManager.notifyBeaconDetection(beaconId: beacon.major, userId: UIDevice.current.identifierForVendor?.uuidString ?? "N/A")
+        }
+    }
+    
+    @IBAction func tapDetected() {
+        if TAP_ONLY {
+            self.performSegue(withIdentifier: "Journey2Feedback", sender: self)
+            networkManager.notifyBeaconDetection(beaconId: 12345, userId: UIDevice.current.identifierForVendor?.uuidString ?? "N/A")
         }
     }
     
