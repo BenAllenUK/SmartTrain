@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-private let LOCAL_SERVER = "192.168.43.31"
+private let LOCAL_SERVER = "10.11.10.123"
 
 class NetworkManager {
     
